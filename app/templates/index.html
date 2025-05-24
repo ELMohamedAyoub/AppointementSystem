@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+        <h1 class="display-4 mb-4">Welcome to the Appointment System</h1>
+        <p class="lead">Manage your appointments efficiently and effectively.</p>
+        
+        {% if current_user.is_authenticated %}
+        <div class="mt-4">
+            <a href="{{ url_for('appointments.list_appointments') }}" class="btn btn-primary btn-lg me-3">View Appointments</a>
+            <a href="{{ url_for('appointments.create_appointment') }}" class="btn btn-success btn-lg">Create New Appointment</a>
+        </div>
+        {% else %}
+        <div class="mt-4">
+            <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg me-3">Login</a>
+            <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">Register</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Easy Scheduling</h5>
+                <p class="card-text">Schedule appointments with just a few clicks. Our intuitive interface makes it simple.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Reminders</h5>
+                <p class="card-text">Never miss an appointment with our built-in reminder system.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Secure & Private</h5>
+                <p class="card-text">Your data is protected with industry-standard security measures.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

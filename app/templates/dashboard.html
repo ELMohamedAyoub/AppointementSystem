@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h2>Welcome, {{ current_user.username }}!</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Upcoming Appointments</h5>
+                {% if upcoming_appointments %}
+                <ul class="list-group list-group-flush">
+                    {% for appointment in upcoming_appointments %}
+                    <li class="list-group-item">
+                        <h6>{{ appointment.title }}</h6>
+                        <p class="mb-1">{{ appointment.start_time.strftime('%Y-%m-%d %H:%M') }}</p>
+                        <small class="text-muted">{{ appointment.description }}</small>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted">No upcoming appointments</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Quick Actions</h5>
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('appointments.create_appointment') }}" class="btn btn-primary">New Appointment</a>
+                    <a href="{{ url_for('appointments.list_appointments') }}" class="btn btn-outline-primary">View All Appointments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Account Information</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Username:</strong> {{ current_user.username }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Email:</strong> {{ current_user.email }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Member since:</strong> {{ current_user.created_at.strftime('%Y-%m-%d') }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

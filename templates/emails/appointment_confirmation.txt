@@ -1,0 +1,25 @@
+APPOINTMENT CONFIRMATION
+
+Dear {{ patient_name }},
+
+Your appointment has been confirmed with the following details:
+
+Doctor: {{ doctor_name }}
+Specialty: {{ specialty }}
+Date: {{ appointment_date }}
+Time: {{ appointment_time }}
+Location: {{ location }}
+
+If you need to cancel or reschedule your appointment, please do so at least 24 hours in advance.
+
+You can manage your appointments by visiting:
+{{ manage_url }}
+
+Thank you for choosing MedicalPro for your healthcare needs.
+
+Best regards,
+The MedicalPro Team
+
+---------------------------
+This is an automated message, please do not reply to this email.
+© {{ current_year }} MedicalPro. All rights reserved. 

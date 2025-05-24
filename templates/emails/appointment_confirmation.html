@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Appointment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            background-color: #4A90E2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+        .appointment-details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4A90E2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Appointment Confirmation</h1>
+    </div>
+    <div class="content">
+        <p>Dear {{ patient_name }},</p>
+        
+        <p>Your appointment has been confirmed with the following details:</p>
+        
+        <div class="appointment-details">
+            <p><strong>Doctor:</strong> {{ doctor_name }}</p>
+            <p><strong>Specialty:</strong> {{ specialty }}</p>
+            <p><strong>Date:</strong> {{ appointment_date }}</p>
+            <p><strong>Time:</strong> {{ appointment_time }}</p>
+            <p><strong>Location:</strong> {{ location }}</p>
+        </div>
+        
+        <p>If you need to cancel or reschedule your appointment, please do so at least 24 hours in advance.</p>
+        
+        <p>You can manage your appointments by clicking the button below:</p>
+        
+        <a href="{{ manage_url }}" class="button">Manage Appointments</a>
+        
+        <p>Thank you for choosing MedicalPro for your healthcare needs.</p>
+        
+        <p>Best regards,<br>
+        The MedicalPro Team</p>
+    </div>
+    <div class="footer">
+        <p>This is an automated message, please do not reply to this email.</p>
+        <p>© {{ current_year }} MedicalPro. All rights reserved.</p>
+    </div>
+</body>
+</html> 

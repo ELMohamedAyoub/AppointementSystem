@@ -1,0 +1,20 @@
+{% extends "base_flask.html" %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h4>Doctor Dashboard</h4>
+    </div>
+    <div class="card-body">
+        <h5>Welcome, Dr. {{ current_user.email }}</h5>
+        <p>Manage your appointments and patient records here.</p>
+        
+        <div class="links">
+            <a href="{{ url_for('appointments') }}">My Appointments</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MedicalPro{% endblock %}</title>
+    <link rel="icon" href="/static/favicon.ico">
+    
+    <!-- React app will include its own CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div id="root">
+        <!-- React app will be mounted here -->
+        {% block content %}{% endblock %}
+    </div>
+    
+    <!-- Base scripts -->
+    <script>
+        // Global settings that Django can pass to React
+        window.SETTINGS = {
+            API_URL: "{% url 'api-root' %}",
+            MEDIA_URL: "{{ MEDIA_URL }}",
+            STATIC_URL: "{{ STATIC_URL }}",
+            USER: {% if request.user.is_authenticated %}
+                {
+                    id: {{ request.user.id }},
+                    email: "{{ request.user.email }}",
+                    role: "{{ request.user.role.name }}",
+                    name: "{{ request.user.get_full_name }}"
+                }
+            {% else %}
+                null
+            {% endif %}
+        };
+    </script>
+    
+    <!-- React app bundles -->
+    {% block scripts %}
+        <!-- In production, these would be the compiled React app -->
+        <script src="/static/js/bundle.js"></script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,191 @@
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: url('data:image/svg+xml;utf8,<svg width="100%25" height="100%25" xmlns="http://www.w3.org/2000/svg"><rect width="100%25" height="100%25" fill="none"/><g opacity="0.08"><circle cx="60" cy="60" r="50" fill="%2343cea2"/><rect x="80" y="200" width="120" height="40" rx="20" fill="%23185a9d"/><rect x="300" y="100" width="80" height="80" rx="40" fill="%2343cea2"/><circle cx="90%25" cy="90%25" r="60" fill="%23185a9d"/></g></svg>') no-repeat center center fixed;
+    background-size: cover;
+    pointer-events: none;
+}
+
+#content, .card {
+    position: relative;
+    z-index: 1;
+}
+
+h1, h4 {
+    color: #185a9d;
+    text-align: center;
+    margin-top: 40px;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+p {
+    text-align: center;
+    color: #5e6472;
+    margin-bottom: 30px;
+}
+
+.links {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.links a {
+    background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+    box-shadow: 0 4px 14px rgba(67, 206, 162, 0.15);
+    transition: background 0.3s, transform 0.2s;
+    padding: 12px 28px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.links a:hover {
+    background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.card {
+    background: rgba(255,255,255,0.98);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+    margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid #e0e7ef;
+    animation: fadeIn 1.2s;
+}
+
+.card-header {
+    background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    color: white;
+    padding: 18px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.card-header .medical-icon {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card-header h4 {
+    margin: 0;
+}
+
+.card-body {
+    padding: 28px 24px;
+}
+
+.card-footer {
+    padding: 18px;
+    background: #f0f4fa;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.form-label {
+    color: #185a9d;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1.5px solid #b2bec3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+    border: 1.5px solid #43cea2;
+    outline: none;
+}
+
+.btn, .btn-primary {
+    background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(67, 206, 162, 0.12);
+    transition: background 0.3s, transform 0.2s;
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover, .btn:hover {
+    background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+
+.alert-success {
+    background: linear-gradient(90deg, #d4fc79 0%, #96e6a1 100%);
+    border-color: #b7e4c7;
+    color: #155724;
+}
+
+.alert-danger {
+    background: linear-gradient(90deg, #f8d7da 0%, #f5c6cb 100%);
+    border-color: #f5c6cb;
+    color: #721c24;
+} 

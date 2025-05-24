@@ -1,0 +1,42 @@
+{% extends "base_flask.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <span class="medical-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white" width="28" height="28"><circle cx="16" cy="16" r="16" fill="#43cea2"/><path d="M16 7a2 2 0 0 1 2 2v5h5a2 2 0 1 1 0 4h-5v5a2 2 0 1 1-4 0v-5H9a2 2 0 1 1 0-4h5V9a2 2 0 0 1 2-2z" fill="#fff"/></svg>
+                </span>
+                <h4 style="margin:0;">Register</h4>
+            </div>
+            <div class="card-body">
+                <div style="text-align:center; color:#185a9d; margin-bottom:10px; font-size:1.05em;">Create your secure medical account</div>
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">I am a</label>
+                        <select class="form-select" id="role" name="role" required>
+                            <option value="patient">Patient</option>
+                            <option value="doctor">Doctor</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                Already have an account? <a href="{{ url_for('login') }}">Login here</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
